@@ -5,19 +5,10 @@
 	<artifactId>mhandbook-parent</artifactId>
 	<version>0.1.6-SNAPSHOT</version>
   </parent>
-  <artifactId>mhandbook-html</artifactId>
+  <artifactId>mhandbook-epub</artifactId>
   <packaging>jar</packaging>
-  <name>Maven Handbook HTML</name>
+  <name>Maven Handbook ePub</name>
   <build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>html_chunk.xsl</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.cjcook</groupId>
@@ -47,26 +38,21 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>generate-html</id>
+						<id>generate-epub</id>
 						<phase>compile</phase>
 						<goals>
-							<goal>generate-html</goal>
+							<goal>generate-epub</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<htmlCustomization>${basedir}/target/classes/html_chunk.xsl</htmlCustomization>
+                    <bookFile>${project.build.directory}/maven-cookbook.epub</bookFile>
 					<sourceDirectory>${basedir}/target/docbook</sourceDirectory>
-					<targetDirectory>${basedir}/target/html</targetDirectory>
+					<targetDirectory>${basedir}/target/epub</targetDirectory>
 					<includes>book-mcook.xml</includes>
 					<xincludeSupported>true</xincludeSupported>
-					<chunkedOutput>true</chunkedOutput>
-					<chunkSectionDepth>1</chunkSectionDepth>
 					<postProcess>
-						<copy todir="${project.build.directory}/html/images">
-							<fileset dir="${basedir}/src/main/resources/images" />
-						</copy>
-						<copy todir="${project.build.directory}/html/figs/web">
+						<copy todir="${project.build.directory}/epub/OEBPS/figs/web">
 							<fileset dir="target/docbook/figs/web" />
 						</copy>
 					</postProcess>

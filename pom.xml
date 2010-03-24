@@ -27,6 +27,7 @@
     <maven.book.baseurl>http://books.sonatype.com/maven-book-stage</maven.book.baseurl>
     <root.example.dir>~/examples</root.example.dir>
     <local.repo.dir>~/.m2/repository</local.repo.dir>
+    <docbkx-tools.version>2.0.11-SNAPSHOT</docbkx-tools.version>
   </properties>
   <developers>
     <developer>
@@ -43,6 +44,7 @@
   <modules>
     <module>mhandbook-content</module>
     <module>mhandbook-eclipse</module>
+    <module>mhandbook-epub</module>
     <module>mhandbook-examples</module>
     <module>mhandbook-html</module>
     <module>mhandbook-pdf</module>
